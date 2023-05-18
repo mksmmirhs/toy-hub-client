@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 
-const Login = () => {
+const SignUP = () => {
   return (
     <div className="relative flex flex-col justify-center h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-lg">
@@ -10,6 +10,16 @@ const Login = () => {
           Login
         </h1>
         <form className="space-y-4">
+          <div>
+            <label className="label">
+              <span className="text-base label-text">Name</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Your name"
+              className="w-full input input-bordered input-primary"
+            />
+          </div>
           <div>
             <label className="label">
               <span className="text-base label-text">Email</span>
@@ -32,9 +42,9 @@ const Login = () => {
           </div>
           <div>
             <p>
-              New to site?{' '}
+              Already have an account?{' '}
               <span className=" text-bold text-orange-400">
-                <Link to="/signup">Sign Up</Link>
+                <Link to="/login">Login</Link>
               </span>
             </p>
           </div>
@@ -48,4 +58,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUP;
