@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Login = () => {
   const { emailSignIn } = useContext(AuthContext);
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+  const navigate = useNavigate();
+
   const handleLogin = event => {
     event.preventDefault();
     const form = event.target;
@@ -16,6 +20,7 @@ const Login = () => {
       .then(res => {
         console.log(res.user);
         Swal.fire('User Login!', 'Successful!', 'success');
+        navigate(from, { replace: true });
       })
       .catch(err => {
         console.log(err);

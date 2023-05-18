@@ -48,7 +48,7 @@ const Footer = () => {
       <div>
         <p>
           Copyright © 2023 - All right reserved by
-          <span className="text-[#d6b08e]"> Car Toy Store</span>
+          <span className="text-[#d6b08e]"> Car Toy City</span>
         </p>
       </div>
     </footer>

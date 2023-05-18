@@ -87,7 +87,7 @@ const NavBar = () => {
           alt=""
         />
         <Link to="/" className=" text-xl text-[#d6b08e]">
-          Car Toy Store
+          Car Toy City
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
