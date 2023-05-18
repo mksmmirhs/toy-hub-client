@@ -14,14 +14,14 @@ const navBarMenu = (
       <Link to="/myToys">My Toys</Link>
     </li>
     <li>
-      <Link to="/AddToy">Add A Toy</Link>
+      <Link to="/addToy">Add A Toy</Link>
     </li>
     <li>
       <Link to="/blog">Blog</Link>
     </li>
 
     <li>
-      <Link to="/Login">Login</Link>
+      <Link to="/login">Login</Link>
     </li>
   </>
 );
@@ -66,7 +66,7 @@ const NavBar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navBarMenu}</ul>
       </div>
-      <div className="navbar-end me-4">
+      <div className="navbar-end me-4 tooltip-bottom" data-tip="hello">
         <div className="avatar">
           <div className=" w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
             <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
