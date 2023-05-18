@@ -1,21 +1,41 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import SocialLogin from '../SocialLogin/SocialLogin';
+import { AuthContext } from '../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Login = () => {
+  const { emailSignIn } = useContext(AuthContext);
+  const handleLogin = event => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    emailSignIn(email, password)
+      .then(res => {
+        console.log(res.user);
+        Swal.fire('User Login!', 'Successful!', 'success');
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
   return (
     <div className="relative flex flex-col justify-center h-screen overflow-hidden">
       <div className="w-full p-6 m-auto bg-white rounded-md shadow-md lg:max-w-lg">
         <h1 className="text-3xl font-semibold text-center text-purple-700">
           Login
         </h1>
-        <form className="space-y-4">
+        <form onSubmit={handleLogin} className="space-y-4">
           <div>
             <label className="label">
               <span className="text-base label-text">Email</span>
             </label>
             <input
               type="text"
+              name="email"
               placeholder="Email Address"
               className="w-full input input-bordered input-primary"
             />
@@ -26,6 +46,7 @@ const Login = () => {
             </label>
             <input
               type="password"
+              name="password"
               placeholder="Enter Password"
               className="w-full input input-bordered input-primary"
             />

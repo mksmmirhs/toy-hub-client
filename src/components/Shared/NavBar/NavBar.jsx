@@ -42,7 +42,9 @@ const NavBar = () => {
 
       {user ? (
         <li>
-          <Link onClick={logout}>Logout</Link>
+          <Link onClick={logout} to="/">
+            Logout
+          </Link>
         </li>
       ) : (
         <li>
