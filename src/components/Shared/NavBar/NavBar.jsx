@@ -1,8 +1,21 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
+const navBarMenu = (
+  <>
+    <li>
+      <Link to="/">Home</Link>
+    </li>
+
+    <li>
+      <a>Item 3</a>
+    </li>
+  </>
+);
 
 const NavBar = () => {
   return (
-    <div className="navbar bg-gray-300">
+    <div className="navbar bg-[#e0f8fa]">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -25,26 +38,20 @@ const NavBar = () => {
             tabIndex={0}
             className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
-            <li>
-              <a>Item 1</a>
-            </li>
-
-            <li>
-              <a>Item 3</a>
-            </li>
+            {navBarMenu}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <img
+          className=" h-[78px] w-[78px]"
+          src="https://img.freepik.com/premium-vector/train-kids-toys-logo-vector_586862-66.jpg?"
+          alt=""
+        />
+        <Link to="/" className=" text-xl text-[#d6b08e]">
+          Car Toy Store
+        </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-          <li>
-            <a>Item 1</a>
-          </li>
-          <li>
-            <a>Item 3</a>
-          </li>
-        </ul>
+        <ul className="menu menu-horizontal px-1">{navBarMenu}</ul>
       </div>
       <div className="navbar-end">
         <a className="btn">Get started</a>
