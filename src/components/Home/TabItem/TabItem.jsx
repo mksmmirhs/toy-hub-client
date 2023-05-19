@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import ReactStars from 'react-rating-stars-component';
 const TabItem = ({ car }) => {
   const { name, picture_url, price, rating, _id } = car;
   return (
@@ -11,7 +11,21 @@ const TabItem = ({ car }) => {
       <div className="card-body">
         <h2 className="card-title">{name}</h2>
         <p>Price: ${price}</p>
-        <p>Rating: {rating}</p>
+        <h1>
+          Rating:{' '}
+          <ReactStars
+            count={5}
+            size={24}
+            edit={false}
+            value={rating}
+            isHalf={true}
+            emptyIcon={<i className="far fa-star"></i>}
+            halfIcon={<i className="fa fa-star-half-alt"></i>}
+            fullIcon={<i className="fa fa-star"></i>}
+            activeColor="#ffd700"
+          />
+          {rating}
+        </h1>
         <div className="card-actions justify-end">
           <Link to={`viewDetails/${_id}`}>
             <button className="btn btn-primary">View Details</button>
