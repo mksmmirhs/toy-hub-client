@@ -6,7 +6,7 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const SignUP = () => {
-  const { emailSignUp } = useContext(AuthContext);
+  const { emailSignUp, profileUpdate } = useContext(AuthContext);
 
   const signUpEmail = event => {
     event.preventDefault();
@@ -14,13 +14,18 @@ const SignUP = () => {
     const name = form.name.value;
     const email = form.email.value;
     const password = form.password.value;
+    const photoUrl = form.photoUrl.value;
     console.log(name, email, password);
     emailSignUp(email, password)
       .then(result => {
         console.log(result.user);
+        profileUpdate(name, photoUrl);
         Swal.fire('User created!', 'Successful!', 'success');
       })
       .catch(err => {
+        const message = err.message;
+        console.log(message);
+        Swal.fire('Sign up failed!', message, 'error');
         console.log(err);
       });
   };
@@ -41,6 +46,19 @@ const SignUP = () => {
               placeholder="Your name"
               name="name"
               className="w-full input input-bordered input-primary"
+              required
+            />
+          </div>
+          <div>
+            <label className="label">
+              <span className="text-base label-text">Photo Url</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Photo Url"
+              name="photoUrl"
+              className="w-full input input-bordered input-primary"
+              required
             />
           </div>
           <div>
@@ -52,6 +70,7 @@ const SignUP = () => {
               placeholder="Email Address"
               name="email"
               className="w-full input input-bordered input-primary"
+              required
             />
           </div>
           <div>
@@ -63,6 +82,7 @@ const SignUP = () => {
               placeholder="Enter Password"
               name="password"
               className="w-full input input-bordered input-primary"
+              required
             />
           </div>
           <div>

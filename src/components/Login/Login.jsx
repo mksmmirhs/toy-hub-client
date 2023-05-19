@@ -23,6 +23,8 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch(err => {
+        const message = err.message;
+        Swal.fire('User Login failed!', message, 'error');
         console.log(err);
       });
   };
@@ -43,6 +45,7 @@ const Login = () => {
               name="email"
               placeholder="Email Address"
               className="w-full input input-bordered input-primary"
+              required
             />
           </div>
           <div>
@@ -54,6 +57,7 @@ const Login = () => {
               name="password"
               placeholder="Enter Password"
               className="w-full input input-bordered input-primary"
+              required
             />
           </div>
           <div>

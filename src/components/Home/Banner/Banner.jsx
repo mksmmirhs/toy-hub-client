@@ -2,8 +2,8 @@ import React from 'react';
 
 const Banner = () => {
   return (
-    <div className="bg-gradient-to-r from-blue-500 to-purple-500 grid grid-cols-2 gap-4 ">
-      <div className=" flex flex-col items-center justify-center">
+    <div className="bg-gradient-to-r from-blue-500 to-purple-500 grid md:grid-cols-2 gap-4 ">
+      <div className=" flex flex-col items-center justify-center my-4">
         <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4">
           Welcome to Car Toy City!
         </h1>
@@ -15,7 +15,7 @@ const Banner = () => {
         <img
           src="https://www.nicepng.com/png/full/64-648246_free-classic-car-clipart-toy-car-clipart.png"
           alt="Car Toy Store Banner"
-          className="h-[400px]"
+          className="h-[400px] py-4"
         />
       </div>
     </div>
