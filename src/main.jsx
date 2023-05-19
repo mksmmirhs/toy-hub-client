@@ -8,6 +8,8 @@ import ErrorPage from './error-page';
 import Login from './components/Login/Login';
 import SignUP from './components/SignUP/SignUP';
 import Home from './components/Home/Home/Home';
+import ToyDetails from './components/ToyDetails/ToyDetails';
+import PrivateRoute from './PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,15 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home></Home>,
         loader: () => fetch('http://localhost:5000/gallery'),
+      },
+      {
+        path: 'viewDetails/:id',
+        element: (
+          <PrivateRoute>
+            <ToyDetails></ToyDetails>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) => fetch(`http://localhost:5000/toy/${params.id}`),
       },
     ],
   },
