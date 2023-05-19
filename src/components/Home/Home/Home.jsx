@@ -5,6 +5,7 @@ import { useLoaderData } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import TabItem from '../TabItem/TabItem';
+import HomeBlog from '../HomeBlog/HomeBlog';
 
 const Home = () => {
   const galleryItems = useLoaderData();
@@ -73,6 +74,11 @@ const Home = () => {
         {featuredCars.map(car => (
           <TabItem key={car._id} car={car}></TabItem>
         ))}
+      </div>
+      <h1 className="my-8 text-center text-5xl">LATEST BLOG</h1>
+      <hr />
+      <div className=" grid md:grid-cols-3 gap-4 my-8">
+        <HomeBlog></HomeBlog>
       </div>
     </div>
   );
