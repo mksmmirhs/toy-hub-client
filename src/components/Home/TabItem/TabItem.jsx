@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactStars from 'react-rating-stars-component';
+import ViewDetails from '../../Shared/ViewDetails/ViewDetails';
 const TabItem = ({ car }) => {
   const { name, picture_url, price, rating, _id } = car;
   return (
-    <div className="card card-compact w-72 bg-base-100 shadow-xl my-4 mx-auto">
+    <div className="card card-compact  w-full bg-base-100 shadow-xl my-4 mx-auto">
       <figure>
         <img src={picture_url} alt="cars" className="w-[240px] h-[300px]" />
       </figure>
@@ -27,9 +28,7 @@ const TabItem = ({ car }) => {
           {rating}
         </h1>
         <div className="card-actions justify-end">
-          <Link to={`viewDetails/${_id}`}>
-            <button className="btn btn-primary">View Details</button>
-          </Link>
+          <ViewDetails _id={_id}></ViewDetails>
         </div>
       </div>
     </div>

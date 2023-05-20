@@ -1,9 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ViewDetails from '../Shared/ViewDetails/ViewDetails';
 
 const ToyRow = ({ toy }) => {
-  const { picture_url, name, sub_category, price, available_quantity, _id } =
-    toy;
+  const {
+    picture_url,
+    name,
+    sub_category,
+    price,
+    available_quantity,
+    _id,
+    seller_name,
+  } = toy;
   return (
     <tr>
       <td>
@@ -18,13 +26,12 @@ const ToyRow = ({ toy }) => {
           </div>
         </div>
       </td>
+      <td>{seller_name}</td>
       <td>{sub_category}</td>
       <td>${price}</td>
       <td>{available_quantity}</td>
       <th>
-        <Link to={`/viewDetails/${_id}`}>
-          <button className="btn btn-primary">View Details</button>
-        </Link>
+        <ViewDetails _id={_id}></ViewDetails>
       </th>
     </tr>
   );

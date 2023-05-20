@@ -46,21 +46,21 @@ const Home = () => {
           </TabList>
 
           <TabPanel>
-            <div className="grid md:grid-cols-3 ">
+            <div className="grid md:grid-cols-3 gap-8">
               {SportsCar.map(car => (
                 <TabItem key={car._id} car={car}></TabItem>
               ))}
             </div>
           </TabPanel>
           <TabPanel>
-            <div className="grid md:grid-cols-3 ">
+            <div className="grid md:grid-cols-3 gap-8">
               {PoliceVehicles.map(car => (
                 <TabItem key={car._id} car={car}></TabItem>
               ))}
             </div>
           </TabPanel>
           <TabPanel>
-            <div className="grid md:grid-cols-3 ">
+            <div className="grid md:grid-cols-3 gap-8">
               {MonsterTrucks.map(car => (
                 <TabItem key={car._id} car={car}></TabItem>
               ))}
@@ -70,7 +70,7 @@ const Home = () => {
       </div>
       <h1 className="my-8 text-center text-5xl">Featured Items</h1>
       <hr />
-      <div className="grid md:grid-cols-3">
+      <div className="grid md:grid-cols-3 gap-8">
         {featuredCars.map(car => (
           <TabItem key={car._id} car={car}></TabItem>
         ))}
