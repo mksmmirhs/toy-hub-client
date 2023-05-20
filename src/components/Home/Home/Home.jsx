@@ -6,12 +6,14 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import TabItem from '../TabItem/TabItem';
 import HomeBlog from '../HomeBlog/HomeBlog';
+import usePageTitle from '../../../Titlehook/usePageTitle ';
 
 const Home = () => {
+  usePageTitle('Home');
   const galleryItems = useLoaderData();
   const [allToys, setAllToys] = useState([]);
   useEffect(() => {
-    fetch('http://localhost:5000/toys')
+    fetch('https://toy-final.vercel.app/toys')
       .then(res => res.json())
       .then(data => setAllToys(data));
   }, []);

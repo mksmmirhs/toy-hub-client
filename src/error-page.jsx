@@ -5,9 +5,11 @@ export default function ErrorPage() {
 
   return (
     <div id="error-page" className=" text-center">
-      <Link to="/" className=" text-4xl">
-        Home
-      </Link>
+      <div className="my-8">
+        <Link to="/" className=" text-4xl">
+          <button className="btn">Back to home</button>
+        </Link>
+      </div>
       <img
         className="mx-auto"
         src="https://blog.fluidui.com/assets/images/posts/imageedit_1_9273372713.png"

@@ -2,12 +2,14 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import MyToysRow from './MyToysRow';
 import Swal from 'sweetalert2';
+import usePageTitle from '../../Titlehook/usePageTitle ';
 
 const MyToys = () => {
+  usePageTitle('My Toys');
   const { user } = useContext(AuthContext);
   const [toys, setToys] = useState([]);
 
-  const url = `http://localhost:5000/mytoys?email=${user?.email}`;
+  const url = `https://toy-final.vercel.app/mytoys?email=${user?.email}`;
   useEffect(() => {
     fetch(url)
       .then(res => res.json())
@@ -26,7 +28,7 @@ const MyToys = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/mytoys/${id}`, {
+        fetch(`https://toy-final.vercel.app/mytoys/${id}`, {
           method: 'DELETE',
         })
           .then(res => res.json())
@@ -41,14 +43,14 @@ const MyToys = () => {
     });
   };
   const handleSort = () => {
-    fetch(`http://localhost:5000/descending?email=${user?.email}`)
+    fetch(`https://toy-final.vercel.app/descending?email=${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setToys(data);
       });
   };
   const handleSortAscending = () => {
-    fetch(`http://localhost:5000/ascending?email=${user?.email}`)
+    fetch(`https://toy-final.vercel.app/ascending?email=${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setToys(data);
@@ -60,7 +62,7 @@ const MyToys = () => {
         <button onClick={handleSort} className="btn">
           Sort descending
         </button>
-        <button onClick={handleSortAscending} className="btn">
+        <button onClick={handleSortAscending} className="btn ms-4">
           Sort ascending
         </button>
       </div>

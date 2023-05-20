@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import ToyRow from './ToyRow';
+import usePageTitle from '../../Titlehook/usePageTitle ';
 
 const AllToys = () => {
+  usePageTitle('All Toys');
   const loadedToys = useLoaderData();
   const [toys, setToys] = useState(loadedToys);
   const handleSearch = event => {
     event.preventDefault();
     const search = event.target.name.value;
     console.log(search);
-    const url = `http://localhost:5000/search?name=${search}`;
+    const url = `https://toy-final.vercel.app/search?name=${search}`;
     fetch(url)
       .then(res => res.json())
       .then(data => {

@@ -1,8 +1,10 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import Swal from 'sweetalert2';
+import usePageTitle from '../../Titlehook/usePageTitle ';
 
 const AddToy = () => {
+  usePageTitle('Add a toy');
   const { user } = useContext(AuthContext);
 
   const handleSubmit = event => {
@@ -29,7 +31,7 @@ const AddToy = () => {
       description,
     };
     console.log(toy);
-    fetch('http://localhost:5000/add', {
+    fetch('https://toy-final.vercel.app/add', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

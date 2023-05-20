@@ -1,11 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
 import ReactStars from 'react-rating-stars-component';
 import ViewDetails from '../../Shared/ViewDetails/ViewDetails';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 const TabItem = ({ car }) => {
   const { name, picture_url, price, rating, _id } = car;
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
-    <div className="card card-compact  w-full bg-base-100 shadow-xl my-4 mx-auto">
+    <div
+      className="card card-compact  w-full bg-base-100 shadow-xl my-4 mx-auto"
+      data-aos="flip-left"
+    >
       <figure>
         <img src={picture_url} alt="cars" className="w-[240px] h-[300px]" />
       </figure>
