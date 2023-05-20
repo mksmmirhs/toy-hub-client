@@ -1,7 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const MyToysRow = ({ toy, handleDelete }) => {
-  const { picture_url, _id } = toy;
+  const { picture_url, _id, name, price } = toy;
   return (
     <tr>
       <td>
@@ -11,6 +12,8 @@ const MyToysRow = ({ toy, handleDelete }) => {
           </div>
         </div>
       </td>
+      <td>{name}</td>
+      <td>${price}</td>
       <td>
         <button
           onClick={() => handleDelete(_id)}
@@ -31,6 +34,11 @@ const MyToysRow = ({ toy, handleDelete }) => {
             />
           </svg>
         </button>
+      </td>
+      <td>
+        <Link to={`/update/${_id}`}>
+          <button className="btn btn-primary">Update Details</button>
+        </Link>
       </td>
     </tr>
   );

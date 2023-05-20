@@ -48,8 +48,10 @@ const MyToys = () => {
           <thead>
             <tr>
               <th></th>
-              <th></th>
-              <th></th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>Delete</th>
+              <th>Update</th>
             </tr>
           </thead>
           <tbody>
