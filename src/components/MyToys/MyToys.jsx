@@ -47,11 +47,21 @@ const MyToys = () => {
         setToys(data);
       });
   };
+  const handleSortAscending = () => {
+    fetch(`http://localhost:5000/ascending?email=${user?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setToys(data);
+      });
+  };
   return (
     <div className="my-8">
       <div className="my-4 text-center">
         <button onClick={handleSort} className="btn">
           Sort descending
+        </button>
+        <button onClick={handleSortAscending} className="btn">
+          Sort ascending
         </button>
       </div>
       <div className="overflow-x-auto w-full">
